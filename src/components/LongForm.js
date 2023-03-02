@@ -1,28 +1,7 @@
 import React, { useReducer } from "react";
+import { initialState, reducer } from "../state/formReducer";
 
 const LongForm = () => {
-  const initialState = {
-    firstName: "",
-    lastName: "",
-    password: "",
-    city: "",
-    state: "",
-    zip: "",
-  };
-
-  const reducer = (state, action) => {
-    console.log(action);
-    switch (action.type) {
-      case "INPUT":
-        return {
-          ...state,
-          [action.payload.name]: action.payload.value,
-        };
-      default:
-        return state;
-    }
-  };
-
   const [state, dispatch] = useReducer(reducer, initialState);
 
   const handleSubmit = (e) => {

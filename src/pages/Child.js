@@ -7,9 +7,9 @@ const Child = () => {
 
   const reducer = (state, action) => {
     if (action.type === "INCREMENT") {
-      return state + 1;
+      return state + action.payload;
     } else if (action.type === "DECREMENT") {
-      return state - 1;
+      return state - action.payload;
     }
   };
 
@@ -24,13 +24,13 @@ const Child = () => {
         </div>
         <div className="flex">
           <button
-            onClick={() => dispatch({ type: "DECREMENT" })}
+            onClick={() => dispatch({ type: "DECREMENT", payload: 5 })}
             className="p-5 border-4 border-cyan-300 my-5 rounded-lg mr-4"
           >
             Decrement
           </button>
           <button
-            onClick={() => dispatch({ type: "INCREMENT" })}
+            onClick={() => dispatch({ type: "INCREMENT", payload: 6 })}
             className="p-5 border-4 border-cyan-300 my-5 rounded-lg"
           >
             Increment
